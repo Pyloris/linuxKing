@@ -15,7 +15,7 @@ jobs:
 
       - name: Define file order
         run: |
-          echo "FILE_ORDER='[/index.md, /ssh.md]' > order.txt"
+          FILE_ORDER='[/index.md, /ssh.md]' > order.txt
 
       - name: Read file order
         run: |
