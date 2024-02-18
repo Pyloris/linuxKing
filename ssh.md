@@ -26,7 +26,7 @@ ssh -v hostname
 
 ### Using PK Auth
 > Private Key is stored on the client & Public key is to transferred to each server to which we want to connect.
-```text
+```shell
 # Generate a public-private keypair
 ssh-keygen -t rsa -b 4096 -C "shoaibwani@gmail.com"
 
@@ -39,7 +39,7 @@ ssh -i ~/.ssh/id_rsa username@server
 
 
 ### Local Port Forwarding
-```text
+```shell
 # Forward a remote port to a local port
 # remote_host:remote_port is resolved with respect to ssh server (hostname)
 # -N means not to execute a remote command
@@ -52,7 +52,7 @@ ssh -L 8080:localhost:80 -N -f shoaib@ssh.wani.com        # forwards localhost:8
 
 
 ### Remote Port Forwarding
-```text
+```shell
 # This is done via the client, SERVER -> Client -> Dest
 ssh -R remote_host:remote_port:dest_host:dest_port -N -f username@hostname
 
@@ -63,7 +63,7 @@ ssh -R localhost:80:ssh.shoaib.com:8080 -N -f shoaib@ssh.wani.com
 
 
 ### Dynamic Port Forwarding
-```text
+```shell
 # It turns ssh client into a SOCKS proxy allowing us to tunnel all traffic through a remote server.
 # APP(on local machine) -> localhost:port -> ssh.wani.com
 ssh -D port username@ssh.wani.com
@@ -80,7 +80,7 @@ ssh -D port username@ssh.wani.com
 >We can create a system wide config for ssh in `/etc/ssh/ssh_config`.
 
 Everything you will ever need to use in an ssh config file
-```text
+```shell
 # Global options
 Host *
   # Use stronger ciphers for encryption

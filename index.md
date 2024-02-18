@@ -7,7 +7,7 @@
 3. [SSH Byte](#ssh-command)
 4. [Sed Byte](#SED)
 5. [Grep Byte](#GREP)
-6. [Find Byte](#FIND)
+6. [Searching Files](#search-for-files)
 7. [Netstat Byte](#NETSTAT)
 8. [Curl Byte](#CURL)
 9. [Wget Byte](#WGET)
