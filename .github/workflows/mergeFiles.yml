@@ -20,7 +20,8 @@ jobs:
       run: |
         # Define the order of markdown files to merge
         files_to_merge=("index.md", "navigation.md", "files.md", "ssh.md")
-
+        # remove existing contents readme
+        echo '' > README.MD
         # Merge files in the specified order
         for file in ${files_to_merge[@]}; do
           cat ${file/%,/} >> README.md
