@@ -2,19 +2,20 @@
 > I suffixed the names of chapters with `Byte` which symbolizes the concise nature of the material provided.
 
 ### Command Index
-1. [Linux Navigation Byte](#LinuxNav)
-2. [SSH Byte](#SSH)
-3. [Sed Byte](#SED)
-4. [Grep Byte](#GREP)
-5. [Find Byte](#FIND)
-6. [Netstat Byte](#NETSTAT)
-7. [Curl Byte](#CURL)
-8. [Wget Byte](#WGET)
-9. [Tcpdump Byte](#TCPDUMP)
-10. [Dig Byte](#DIG)
-11. [Iptables Byte](#IPTABLES)
-12. [Ufw Byte](#UFW)
-13. [Ipaddr Byte](#IPADDR)
+1. [Linux Navigation Byte](#linux-navigation-commands)
+2. [Files & Directories Byte](#files-and-directories)
+3. [SSH Byte](#ssh-command)
+4. [Sed Byte](#SED)
+5. [Grep Byte](#GREP)
+6. [Find Byte](#FIND)
+7. [Netstat Byte](#NETSTAT)
+8. [Curl Byte](#CURL)
+9. [Wget Byte](#WGET)
+10. [Tcpdump Byte](#TCPDUMP)
+11. [Dig Byte](#DIG)
+12. [Iptables Byte](#IPTABLES)
+13. [Ufw Byte](#UFW)
+14. [Ipaddr Byte](#IPADDR)
 
 
 ### Stuff you should to Know

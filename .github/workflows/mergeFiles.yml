@@ -19,7 +19,7 @@ jobs:
     - name: Merge MD Files
       run: |
         # Define the order of markdown files to merge
-        files_to_merge=("index.md", "ssh.md")
+        files_to_merge=("index.md", "navigation.md", "files.md", "ssh.md")
 
         # Merge files in the specified order
         for file in ${files_to_merge[@]}; do
