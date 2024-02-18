@@ -1,0 +1,42 @@
+name: Merge MD Files
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  merge-md:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Define file order
+        run: |
+          echo "FILE_ORDER='[index.md, ssh.md]' > order.txt"
+
+      - name: Read file order
+        run: |
+          ORDER=$(cat order.txt)
+
+      - name: Create initial README
+        run: echo '' > README.md
+
+      - name: Append each file in order
+        run: |
+          IFS=',' read -r -a files <<< "$ORDER"
+          for f in "${files[@]}"; do
+            cat "$f" >> README.md
+            echo "" >> README.md
+          done
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add README.md
+          git commit -m "Merge MD files in specified order"
+
+      - name: Push changes
+        uses: ad-action/git-push@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
