@@ -4,6 +4,9 @@ on:
   push:
     branches: [ master ]
 
+permissions:
+    contents: write
+
 jobs:
   merge-md:
     runs-on: ubuntu-latest
