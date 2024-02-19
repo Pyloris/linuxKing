@@ -5,7 +5,7 @@
 1. [Linux Navigation Byte](#linux-navigation-commands)
 2. [Files & Directories Byte](#files-and-directories)
 3. [SSH Byte](#ssh-command)
-4. [Sed Byte](#SED)
+4. [Sed Byte](#sed-command)
 5. [Grep Byte](#GREP)
 6. [Searching Files](#search-for-files)
 7. [Netstat Byte](#NETSTAT)
