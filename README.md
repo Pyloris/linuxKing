@@ -8,7 +8,7 @@
 3. [SSH Byte](#ssh-command)
 4. [Sed Byte](#SED)
 5. [Grep Byte](#GREP)
-6. [Find Byte](#FIND)
+6. [Searching Files](#search-for-files)
 7. [Netstat Byte](#NETSTAT)
 8. [Curl Byte](#CURL)
 9. [Wget Byte](#WGET)
@@ -135,7 +135,7 @@ ssh -v hostname
 
 ### Using PK Auth
 > Private Key is stored on the client & Public key is to transferred to each server to which we want to connect.
-```text
+```shell
 # Generate a public-private keypair
 ssh-keygen -t rsa -b 4096 -C "shoaibwani@gmail.com"
 
@@ -148,7 +148,7 @@ ssh -i ~/.ssh/id_rsa username@server
 
 
 ### Local Port Forwarding
-```text
+```shell
 # Forward a remote port to a local port
 # remote_host:remote_port is resolved with respect to ssh server (hostname)
 # -N means not to execute a remote command
@@ -161,7 +161,7 @@ ssh -L 8080:localhost:80 -N -f shoaib@ssh.wani.com        # forwards localhost:8
 
 
 ### Remote Port Forwarding
-```text
+```shell
 # This is done via the client, SERVER -> Client -> Dest
 ssh -R remote_host:remote_port:dest_host:dest_port -N -f username@hostname
 
@@ -172,7 +172,7 @@ ssh -R localhost:80:ssh.shoaib.com:8080 -N -f shoaib@ssh.wani.com
 
 
 ### Dynamic Port Forwarding
-```text
+```shell
 # It turns ssh client into a SOCKS proxy allowing us to tunnel all traffic through a remote server.
 # APP(on local machine) -> localhost:port -> ssh.wani.com
 ssh -D port username@ssh.wani.com
@@ -189,7 +189,7 @@ ssh -D port username@ssh.wani.com
 >We can create a system wide config for ssh in `/etc/ssh/ssh_config`.
 
 Everything you will ever need to use in an ssh config file
-```text
+```shell
 # Global options
 Host *
   # Use stronger ciphers for encryption
@@ -231,4 +231,45 @@ Group dev
 Host webserver
   Hostname server2
   LocalForward 8080:localhost:80 # Expose local port 8080 to remote port 80
+```
+## Search for Files
+> This section introduces commands used to search files and directories in a linux filesystem.
+
+```shell
+# to search based on just name of the file/directory
+locate bin/zip
+
+# search for a file owned by shoaib with permissions 600
+find ~ -type f -user shoaib -perm 600
+# search for files which are empty and dont belong to valid group
+find / -type d -empty -nogroup
+# using a name -iname is case insensitive
+find / -type f -name "Shoaib.txt"
+# conditions supported
+# 1. -cmin +n/-n [n minutes]
+# 2. -ctime +n/-n [n days]
+# 3. -empty
+# 4. -group
+# 5. -newer
+# 6. -nouser
+
+
+# using operators to combine above conditions -and, -or, -not
+find / \( -type f -and -perm 600 -not -empty\) -or \( -type d -and -perm 600 \)
+
+# action based on search results (predefined)
+find / -type f -size +1G -delete         # delete found files
+# supported ones are:
+# -print (default) if none is specified
+# -delete
+# -ls
+# -quit (quit once matches are made)
+
+# actions (user-defined) on search results
+find / -type f -perm 620 -user shoaib -size -1G -cnewer ~/.ssh/config -exec rm -rf '{}' ';'   # they have special meaning to shell
+# for interactive execution of commands
+find / -type f -nogroup -ok rm '{}' ';'
+
+# to execute a single command for entire search result
+find / -type f -name "*.BAK" -exec rm '{}' ';' +
 ```
