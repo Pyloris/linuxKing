@@ -7,11 +7,11 @@
 2. [Files & Directories Byte](#files-and-directories)
 3. [SSH Byte](#ssh-command)
 4. [Sed Byte](#sed-command)
-5. [Grep Byte](#GREP)
+5. [Grep Byte](#gred-command)
 6. [Searching Files](#search-for-files)
 7. [Netstat Byte](#NETSTAT)
-8. [Curl Byte](#CURL)
-9. [Wget Byte](#WGET)
+8. [Curl Byte](#curl-command)
+9. [Wget Byte](#wget-command)
 10. [Tcpdump Byte](#TCPDUMP)
 11. [Dig Byte](#DIG)
 12. [Iptables Byte](#IPTABLES)
@@ -295,4 +295,30 @@ find / -type f -nogroup -ok rm '{}' ';'
 
 # to execute a single command for entire search result
 find / -type f -name "*.BAK" -exec rm '{}' ';' +
+```
+## CURL Command
+> It is used to transfer files over a network. Supports Authentication , Encryption & it can also resume interrupted Transfers.
+
+
+```shell
+# download files while keeping original name
+curl -O https://hacker.com/pdf1.pdf -O https://hacker.com/pdf2.pdf
+# save file to a custom path
+curl https://hacker.com/file.pdf -o /home/shoaib/mypdf.pdf
+# to get a progress bar as the download progresses use '-#'
+curl https://domain.com/file.pdf -#
+
+# use proxy
+curl -x "http://shoaib:paswd@198.8.8.1:8080" https://domain.com/file.pdf -o ./file1
+
+# POST request
+curl -X POST https://domain.com/login --data-urlencode username="shoaib" --data-urlencode password="itsme" -d key="hello"
+
+# upload a file to HTTP server
+curl --upload-file /path/to/file http://ip:port/
+
+# upload to FTP server in anonymous mode
+curl -T /home/file ftp://addr/
+# provide credentials
+curl -u username:pass -T /path/to/file ftp://ip
 ```
