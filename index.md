@@ -6,7 +6,7 @@
 2. [Files & Directories Byte](#files-and-directories)
 3. [SSH Byte](#ssh-command)
 4. [Sed Byte](#sed-command)
-5. [Grep Byte](#gred-command)
+5. [Grep Byte](#grep-command)
 6. [Searching Files](#search-for-files)
 7. [Netstat Byte](#NETSTAT)
 8. [Curl Byte](#curl-command)
