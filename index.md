@@ -21,5 +21,5 @@
 
 ### Stuff you should to Know
 1. [Redirection](#redirection)
-2. [Process Substitution](#PROCESS_SUBSTITUTION)
+2. [Process Substitution](#process-substitution)
 3. [Bash Fu](#BASHFU)
