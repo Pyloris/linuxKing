@@ -3,18 +3,18 @@
 >
 >With scp, you can copy a file or directory:
 >
->From your local system to a remote system.
+>1. From your local system to a remote system.
 >
->From a remote system to your local system.
+>2. From a remote system to your local system.
 >
->Between two remote systems from your local system.
+>3. Between two remote systems from your local system.
 
 ```shell
 # the basic structure of the command is like
 scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2
 
 # copy a file to a remote system from local system
-scp /home/file.txt shoaib@10.1.1.2:/root/user/files
+scp -i keyFile /home/file.txt shoaib@10.1.1.2:/root/user/files
 
 # change the name at destination
 scp /home/file.txt shoaib@10.1.1.2:/root/user/files/newfile.txt
@@ -33,6 +33,13 @@ scp "~/Projects/*" dev:/user/files
 ```shell
 # copy to local system from a remote system
 scp dev:/remote/file.txt /home/shoaib/txt1.txt
+```
 
-# 
+> Copy files from one remote system to another remote system.
+```shell
+# take file from host1 to host2
+scp user1@host1.com:/files/file.txt user2@host2.com:/files
+
+# to route the traffic from local machine where command was executed use '-3'
+scp -3 user1@host1.com:/files/file.txt user2@host2.com:/files
 ```
