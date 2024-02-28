@@ -22,7 +22,7 @@
 
 ### Stuff you should to Know
 1. [Redirection](#redirection)
-2. [Process Substitution](#PROCESS_SUBSTITUTION)
+2. [Process Substitution](#process-substitution)
 3. [Bash Fu](#BASHFU)
 ## Linux Navigation Commands
 > This section contains commands related to moving through a linux system via command line.
@@ -430,14 +430,24 @@ wget --ftp-user=FTP_USERNAME --ftp-password=FTP_PASSWORD ftp://ftp.example.com/f
 ```
 ## Redirection
 
-> Redirect output to stdin of another command using `>` and to redirect standard input, we use `<`.
+> Redirect Stdout to some other file or redirect stdin to some otherfile. 
 ```shell
-cat file.txt > file2.txt
+# redirect stdout
+ls / > output.txt
+# redirect stdin
 cat < file.txt
 # redirect stderr
 find / 2> /dev/null
 # redirect stdout and stderr
 find / 2> /dev/null 2>&1
+# in short we may use this to redirect both
+find / &> /dev/null
+
+
+# truncate a file or create a new one
+> newfile.txt
+# append to a file
+cat hi.txt >> greet.txt
 ```
 
 > To redirect output of one command to input of another, we use piping `|`.
@@ -445,3 +455,21 @@ find / 2> /dev/null 2>&1
 ls / | grep root
 ```
 * We cannot do this using `>` because, it writes to a file descriptor and `grep` takes in a file descriptor to read from. To make it work, we may use process substitution.
+
+> Commands which are executed in pipes, are actually executed in subshells, with each command in its own subshell. To doing any variable assignments in the environment will not persist, rather be lost.
+```shell
+ls / | grep root | sed -i 's/hi/hello/g'
+```
+
+> To overcome this limitation, we can use [Process Substitution](#process-substitution).
+## Process Substitution
+> What process substitution does is, it executes a command in subshell, and returns the stdout of that subshell as a file descriptor. We can make the file descriptor either readable or writable.
+
+```shell
+# read something from substituion
+read < <(echo "HELLo")       # provides a readable fd
+cat <(echo "hey" "whatsup")
+
+# write something to it
+cat file.txt > >(cat)
+```
