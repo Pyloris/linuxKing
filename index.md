@@ -14,7 +14,7 @@
 10. [Curl Byte](#curl-command)
 11. [Wget Byte](#wget-command)
 12. [Tcpdump Byte](#TCPDUMP)
-13. [Dig Byte](#DIG)
+13. [Dig Byte](#dig-command)
 14. [Iptables Byte](#IPTABLES)
 15. [Ufw Byte](#UFW)
 16. [Ipaddr Byte](#IPADDR)
