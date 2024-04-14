@@ -8,6 +8,7 @@
 4. [SCP Byte](#scp-command)
 5. [Sed Byte](#sed-command)
 6. [Grep Byte](#grep-command)
+6a. [Awk Byte](#awk-command)
 7. [Searching Files](#search-for-files)
 8. [Netstat Byte](#netstat-command)
 9. [Lsof Byte](#lsof-command)
