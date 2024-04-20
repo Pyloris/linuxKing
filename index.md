@@ -5,6 +5,7 @@
 1. [Linux Navigation Byte](#linux-navigation-commands)
 2. [Files & Directories Byte](#files-and-directories)
 3. [SSH Byte](#ssh-command)
+3a. [Zip Byte](#zip-command)
 4. [SCP Byte](#scp-command)
 5. [Sed Byte](#sed-command)
 6. [Grep Byte](#grep-command)

@@ -19,7 +19,7 @@ jobs:
     - name: Merge MD Files
       run: |
         # Define the order of markdown files to merge
-        files_to_merge=("index.md", "navigation.md", "files.md", "ssh.md", "scp.md", "sed.md", "grep.md", "awk.md", "searchingFiles.md", "netstat.md", "lsof.md", "curl.md", "wget.md", "dig.md", "redirection.md", "process_substitution.md")
+        files_to_merge=("index.md", "navigation.md", "files.md", "ssh.md", "zip.md", "scp.md", "sed.md", "grep.md", "awk.md", "searchingFiles.md", "netstat.md", "lsof.md", "curl.md", "wget.md", "dig.md", "redirection.md", "process_substitution.md")
         # remove existing contents readme
         echo '' > README.md
         # Merge files in the specified order
