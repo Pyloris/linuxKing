@@ -6,6 +6,7 @@
 1. [Linux Navigation Byte](#linux-navigation-commands)
 2. [Files & Directories Byte](#files-and-directories)
 3. [SSH Byte](#ssh-command)
+3a. [Zip Byte](#zip-command)
 4. [SCP Byte](#scp-command)
 5. [Sed Byte](#sed-command)
 6. [Grep Byte](#grep-command)
@@ -234,6 +235,33 @@ Group dev
 Host webserver
   Hostname server2
   LocalForward 8080:localhost:80 # Expose local port 8080 to remote port 80
+```
+## ZIP Command
+> To make .zip from folders we use this utility. It does not preserve ownership information. To preserve it, we should use `tar` utility.
+```shell
+## SYNTAX
+## zip OPTIONS ARCHIVE_NAME FILES
+zip files.zip file1 file2
+
+# suppress the output
+zip -q files.zip file1 file2 file3
+
+# archive a directory
+zip -r files.zip filesDir/
+
+# add other files to the zip as well
+zip -r files.zip filesDir/ file1.txt ../shoaib/files.txt
+
+## By default compression method used is : deflate
+## SUPPORTED METHODS:
+## 1. deflate
+## 2. bzip2
+# if a file cannot be compress,it stored as is
+zip -r -Z bzip2 filesDir/
+
+# specify compression level from 0-9
+# default is 6 and 0 is no compression
+zip -9 -r hello.zip filesDir/
 ```
 ## SCP Command
 > SCP or Secure Copy is used to copy files to and from a machine over an ssh connection. Files are encrypted while transfer so, its safe. SCP uses ':' to differentiate between 
