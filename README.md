@@ -262,6 +262,13 @@ zip -r -Z bzip2 filesDir/
 # specify compression level from 0-9
 # default is 6 and 0 is no compression
 zip -9 -r hello.zip filesDir/
+
+# password protect zipfile
+zip -e hello.zip filesDir/
+
+# split zip into equal size zip for upload restrictions
+# will create 1GB zip files for dir/ if size exceeds 1GB.
+zip -s 1g -r arch.zip dir/
 ```
 ## SCP Command
 > SCP or Secure Copy is used to copy files to and from a machine over an ssh connection. Files are encrypted while transfer so, its safe. SCP uses ':' to differentiate between 
